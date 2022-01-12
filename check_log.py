@@ -16,7 +16,7 @@ class ALL_STRESS_LOG():
             memtester = LOSS_DISK.mem_run()
             fio = LOSS_DISK.fio_run()
             if stress is None and memtester is None and fio is None:
-                print("check log stress->> " + str(stress) + "   memtester->> " + str(memtester) + "   fio->> " + str(fio))
+                print("check_stress->> " + str(stress) + "   memtester->> " + str(memtester) + "   fio->> " + str(fio))
                 self.read_cpu_log()
                 self.read_mem_log()
                 self.read_hdd_log()
@@ -32,7 +32,8 @@ class ALL_STRESS_LOG():
     def read_cpu_log(self):
         with open(c.CPU_STRESS_LOG_PATH, "r") as f:
             cpu_data = f.read()
-        self.write_log("=============== ALL STRESS LOG CHECK " + self.get_local_time_string() + "=======================")
+        self.write_log("The server serial number is: " + c.get_sn())
+        self.write_log("===============  STRESS_ALL " + self.get_local_time_string() + "=======================")
         self.write_log(cpu_data)
         return cpu_data
 
@@ -59,14 +60,13 @@ class ALL_STRESS_LOG():
         with open(c.STRESS_ALL_LOG, "r") as f:
             data = f.read()
             error1 = re.findall("fail", data)
-            error2 = re.findall("Fail", data)
-            error3 = re.findall("error", data)
-            error4 = re.findall("ERROR", data)
-            if error1 or error2 or error3 or error4:
-                self.write_log("->>> Stress Check have ERROR ")
+            error2 = re.findall("error", data)
+            error3 = re.findall("Fail", data)
+            if error1 or error2 or error3:
+                self.write_log("->> 测试项目中有fail项目，请检查！")
                 # l.log(str(error1) + "\n" + str(error2) + "\n" + str(error3))
                 return
-        self.write_log("->> Stress Check PASS ")
+        self.write_log("->> 测试项目通过测试！")
         # print("->> 测试项目通过测试！")
         return
 

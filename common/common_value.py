@@ -21,4 +21,3 @@ def remove_log(log_path):
     else:
         pass
 
-

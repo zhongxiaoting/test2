@@ -1,5 +1,25 @@
 # coding=utf-8
 
+import commands
+import os.path
+
+
+def stress_dir():
+    sn = get_sn()
+    make_dir = commands.getstatusoutput('mkdir %s' % (sn))
+    return make_dir[0]
+
+def get_sn():
+    ret = commands.getstatusoutput('ipmitool fru print 0 | grep "Product Serial" | awk -F ":" \'{print $2}\' ')
+    if ret[0] == 0:
+        return ret[1].strip()
+    else:
+        sn = input("Please input server serial number: ")
+        return sn
+
+sn_path = get_sn()
+if not os.path.exists('/home/test2/' + sn_path):
+    stress_path = stress_dir()
 
 
 ###############
@@ -7,7 +27,7 @@
 ###############
 # define test root path
 TEST_DIR = '/home/test2'
-STRESS_LOG = TEST_DIR + '/stress_log'
+STRESS_LOG = TEST_DIR + '/' + sn_path
 LOG_BACKUP_DIR = TEST_DIR + '/log_backup'
 CFG_PATH = TEST_DIR + '/cfg.json'
 RESULT_LOG_PATH = TEST_DIR + '/result.log'
@@ -16,9 +36,10 @@ CONTROLLER_JSON_PATH = TEST_DIR + '/main/controller.json'
 CPU_STRESS_LOG_PATH = STRESS_LOG + '/cpu_stress.log'
 MEM_STRESS_LOG_PATH = STRESS_LOG + '/mem_stress.log'
 HDD_STRESS_LOG_PATH = STRESS_LOG + '/hdd_stress.log'
-LOSS_DISK_LOG_PATH = STRESS_LOG + '/loss_disk.log'
+LAN_STRESS_LOG_PATH = STRESS_LOG + '/lan_stress.log'
 MCE_ECC_LOG = STRESS_LOG + '/mce_ecc.log'
-STRESS_ALL_LOG = TEST_DIR + '/all_stress.log'
+LOSS_DISK_LOG_PATH = STRESS_LOG + '/loss_disk.log'
+STRESS_ALL_LOG = TEST_DIR + '/' + sn_path + '.log'
 
 
 
@@ -55,3 +76,6 @@ LOCAL_HW_CFG = TEST_DIR + '/config/hw_cfg.json'
 
 # request headers
 REQUEST_HEADERS = {"Content-Type": "application/json\; charset=utf-8", "x-request-datasource": "001"}
+
+
+

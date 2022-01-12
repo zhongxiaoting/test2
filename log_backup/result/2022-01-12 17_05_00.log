@@ -1,8 +1,7 @@
 ===================================
-STATION_STRESS 2022-01-12 17:07:53
+STATION_STRESS 2022-01-12 16:59:07
 ===================================
-======== STRESS_ALL 2022-01-12 17:07:53========
+======== HDD_STRESS 2022-01-12 16:59:07========
 
->> stress_checktest is success!
 >> random_read_writetest is success!
 >> random_readtest is success!

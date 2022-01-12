@@ -25,4 +25,4 @@
 7. station_stress: 存放压力测试的python模块文件
 8. ui_desktop: 桌面交互开发
 9. ui_web: 测试结果的web展示的开发
-10. utils: 工具类的文件目录# test2
+10. utils: 工具类的文件目录

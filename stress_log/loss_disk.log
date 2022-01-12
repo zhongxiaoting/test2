@@ -1,0 +1,169 @@
+==============  Loss Disk Check Begin 2022-01-12 17:08:23 =================
+stress->> 119352 119351 119350 119349 119348 119347 119346 119344 119343 119341 119340 119339 119338 119337 119336 119334 119333 119332 119331 119330 119329 119328 119327 119326 119325 119324 119323 119322 119321 119320 119319 119318 119317 119316 119315 119314 119313 119312 119311 119310   memtester->> 119298   fio->> 120878
+->>> CPU、Memory、Disks Stress Check is Running...
+->>> Disks Showing : 
+NAME            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda               8:0    0 446.6G  0 disk 
+sdb               8:16   0 446.6G  0 disk 
+sdc               8:32   0  10.9T  0 disk 
+sdd               8:48   0  10.9T  0 disk 
+sde               8:64   0  10.9T  0 disk 
+sdf               8:80   0  10.9T  0 disk 
+sdg               8:96   0  10.9T  0 disk 
+sdh               8:112  0  10.9T  0 disk 
+sdi               8:128  0  10.9T  0 disk 
+sdj               8:144  0  10.9T  0 disk 
+sdk               8:160  0  10.9T  0 disk 
+sdl               8:176  0  10.9T  0 disk 
+nvme0n1         259:1    0   1.5T  0 disk 
+├─nvme0n1p1     259:2    0   200M  0 part /boot/efi
+├─nvme0n1p2     259:3    0     1G  0 part /boot
+└─nvme0n1p3     259:4    0   1.5T  0 part 
+  ├─centos-root 253:0    0    50G  0 lvm  /
+  ├─centos-swap 253:1    0     4G  0 lvm  [SWAP]
+  └─centos-home 253:2    0   1.4T  0 lvm  /home
+nvme1n1         259:0    0   1.5T  0 disk 
+->>> Not Loss Disks! 
+=========== NO_1 Loss Disk Check End 2022-01-12 17:08:23  ===========
+stress->> 119352 119351 119350 119349 119348 119347 119346 119344 119343 119341 119340 119339 119338 119337 119336 119334 119333 119332 119331 119330 119329 119328 119327 119326 119325 119324 119323 119322 119321 119320 119319 119318 119317 119316 119315 119314 119313 119312 119311 119310   memtester->> 119298   fio->> 120878
+->>> CPU、Memory、Disks Stress Check is Running...
+->>> Disks Showing : 
+NAME            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda               8:0    0 446.6G  0 disk 
+sdb               8:16   0 446.6G  0 disk 
+sdc               8:32   0  10.9T  0 disk 
+sdd               8:48   0  10.9T  0 disk 
+sde               8:64   0  10.9T  0 disk 
+sdf               8:80   0  10.9T  0 disk 
+sdg               8:96   0  10.9T  0 disk 
+sdh               8:112  0  10.9T  0 disk 
+sdi               8:128  0  10.9T  0 disk 
+sdj               8:144  0  10.9T  0 disk 
+sdk               8:160  0  10.9T  0 disk 
+sdl               8:176  0  10.9T  0 disk 
+nvme0n1         259:1    0   1.5T  0 disk 
+├─nvme0n1p1     259:2    0   200M  0 part /boot/efi
+├─nvme0n1p2     259:3    0     1G  0 part /boot
+└─nvme0n1p3     259:4    0   1.5T  0 part 
+  ├─centos-root 253:0    0    50G  0 lvm  /
+  ├─centos-swap 253:1    0     4G  0 lvm  [SWAP]
+  └─centos-home 253:2    0   1.4T  0 lvm  /home
+nvme1n1         259:0    0   1.5T  0 disk 
+->>> Not Loss Disks! 
+=========== NO_2 Loss Disk Check End 2022-01-12 17:08:36  ===========
+stress->> 119352 119351 119350 119349 119348 119347 119346 119344 119343 119341 119340 119339 119338 119337 119336 119334 119333 119332 119331 119330 119329 119328 119327 119326 119325 119324 119323 119322 119321 119320 119319 119318 119317 119316 119315 119314 119313 119312 119311 119310   memtester->> 119298   fio->> 121932
+->>> CPU、Memory、Disks Stress Check is Running...
+->>> Disks Showing : 
+NAME            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda               8:0    0 446.6G  0 disk 
+sdb               8:16   0 446.6G  0 disk 
+sdc               8:32   0  10.9T  0 disk 
+sdd               8:48   0  10.9T  0 disk 
+sde               8:64   0  10.9T  0 disk 
+sdf               8:80   0  10.9T  0 disk 
+sdg               8:96   0  10.9T  0 disk 
+sdh               8:112  0  10.9T  0 disk 
+sdi               8:128  0  10.9T  0 disk 
+sdj               8:144  0  10.9T  0 disk 
+sdk               8:160  0  10.9T  0 disk 
+sdl               8:176  0  10.9T  0 disk 
+nvme0n1         259:1    0   1.5T  0 disk 
+├─nvme0n1p1     259:2    0   200M  0 part /boot/efi
+├─nvme0n1p2     259:3    0     1G  0 part /boot
+└─nvme0n1p3     259:4    0   1.5T  0 part 
+  ├─centos-root 253:0    0    50G  0 lvm  /
+  ├─centos-swap 253:1    0     4G  0 lvm  [SWAP]
+  └─centos-home 253:2    0   1.4T  0 lvm  /home
+nvme1n1         259:0    0   1.5T  0 disk 
+->>> Not Loss Disks! 
+=========== NO_3 Loss Disk Check End 2022-01-12 17:08:48  ===========
+stress->> 119352 119351 119350 119349 119348 119347 119346 119344 119343 119341 119340 119339 119338 119337 119336 119334 119333 119332 119331 119330 119329 119328 119327 119326 119325 119324 119323 119322 119321 119320 119319 119318 119317 119316 119315 119314 119313 119312 119311 119310   memtester->> 119298   fio->> 121932
+->>> CPU、Memory、Disks Stress Check is Running...
+->>> Disks Showing : 
+NAME            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda               8:0    0 446.6G  0 disk 
+sdb               8:16   0 446.6G  0 disk 
+sdc               8:32   0  10.9T  0 disk 
+sdd               8:48   0  10.9T  0 disk 
+sde               8:64   0  10.9T  0 disk 
+sdf               8:80   0  10.9T  0 disk 
+sdg               8:96   0  10.9T  0 disk 
+sdh               8:112  0  10.9T  0 disk 
+sdi               8:128  0  10.9T  0 disk 
+sdj               8:144  0  10.9T  0 disk 
+sdk               8:160  0  10.9T  0 disk 
+sdl               8:176  0  10.9T  0 disk 
+nvme0n1         259:1    0   1.5T  0 disk 
+├─nvme0n1p1     259:2    0   200M  0 part /boot/efi
+├─nvme0n1p2     259:3    0     1G  0 part /boot
+└─nvme0n1p3     259:4    0   1.5T  0 part 
+  ├─centos-root 253:0    0    50G  0 lvm  /
+  ├─centos-swap 253:1    0     4G  0 lvm  [SWAP]
+  └─centos-home 253:2    0   1.4T  0 lvm  /home
+nvme1n1         259:0    0   1.5T  0 disk 
+->>> Not Loss Disks! 
+=========== NO_4 Loss Disk Check End 2022-01-12 17:09:00  ===========
+stress->> 119352 119351 119350 119349 119348 119347 119346 119344 119343 119341 119340 119339 119338 119337 119336 119334 119333 119332 119331 119330 119329 119328 119327 119326 119325 119324 119323 119322 119321 119320 119319 119318 119317 119316 119315 119314 119313 119312 119311 119310   memtester->> 119298   fio->> 123521
+->>> CPU、Memory、Disks Stress Check is Running...
+->>> Disks Showing : 
+NAME            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda               8:0    0 446.6G  0 disk 
+sdb               8:16   0 446.6G  0 disk 
+sdc               8:32   0  10.9T  0 disk 
+sdd               8:48   0  10.9T  0 disk 
+sde               8:64   0  10.9T  0 disk 
+sdf               8:80   0  10.9T  0 disk 
+sdg               8:96   0  10.9T  0 disk 
+sdh               8:112  0  10.9T  0 disk 
+sdi               8:128  0  10.9T  0 disk 
+sdj               8:144  0  10.9T  0 disk 
+sdk               8:160  0  10.9T  0 disk 
+sdl               8:176  0  10.9T  0 disk 
+nvme0n1         259:1    0   1.5T  0 disk 
+├─nvme0n1p1     259:2    0   200M  0 part /boot/efi
+├─nvme0n1p2     259:3    0     1G  0 part /boot
+└─nvme0n1p3     259:4    0   1.5T  0 part 
+  ├─centos-root 253:0    0    50G  0 lvm  /
+  ├─centos-swap 253:1    0     4G  0 lvm  [SWAP]
+  └─centos-home 253:2    0   1.4T  0 lvm  /home
+nvme1n1         259:0    0   1.5T  0 disk 
+->>> Not Loss Disks! 
+=========== NO_5 Loss Disk Check End 2022-01-12 17:09:12  ===========
+stress->> 119352 119351 119350 119349 119348 119347 119346 119344 119343 119341 119340 119339 119338 119337 119336 119334 119333 119332 119331 119330 119329 119328 119327 119326 119325 119324 119323 119322 119321 119320 119319 119318 119317 119316 119315 119314 119313 119312 119311 119310   memtester->> 119298   fio->> 123521
+->>> CPU、Memory、Disks Stress Check is Running...
+->>> Disks Showing : 
+NAME            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda               8:0    0 446.6G  0 disk 
+sdb               8:16   0 446.6G  0 disk 
+sdc               8:32   0  10.9T  0 disk 
+sdd               8:48   0  10.9T  0 disk 
+sde               8:64   0  10.9T  0 disk 
+sdf               8:80   0  10.9T  0 disk 
+sdg               8:96   0  10.9T  0 disk 
+sdh               8:112  0  10.9T  0 disk 
+sdi               8:128  0  10.9T  0 disk 
+sdj               8:144  0  10.9T  0 disk 
+sdk               8:160  0  10.9T  0 disk 
+sdl               8:176  0  10.9T  0 disk 
+nvme0n1         259:1    0   1.5T  0 disk 
+├─nvme0n1p1     259:2    0   200M  0 part /boot/efi
+├─nvme0n1p2     259:3    0     1G  0 part /boot
+└─nvme0n1p3     259:4    0   1.5T  0 part 
+  ├─centos-root 253:0    0    50G  0 lvm  /
+  ├─centos-swap 253:1    0     4G  0 lvm  [SWAP]
+  └─centos-home 253:2    0   1.4T  0 lvm  /home
+nvme1n1         259:0    0   1.5T  0 disk 
+->>> Not Loss Disks! 
+=========== NO_6 Loss Disk Check End 2022-01-12 17:09:25  ===========
+stress->> None   memtester->> 119298   fio->> 125137
+->> stress、memtester and fio are Stopped!
+=========== NO_7 Loss Disk Check End 2022-01-12 17:09:37  ===========
+stress->> None   memtester->> 119298   fio->> 125137
+->> stress、memtester and fio are Stopped!
+=========== NO_8 Loss Disk Check End 2022-01-12 17:09:49  ===========
+stress->> None   memtester->> 119298   fio->> 126632
+->> stress、memtester and fio are Stopped!
+=========== NO_9 Loss Disk Check End 2022-01-12 17:10:01  ===========
+stress->> None   memtester->> 119298   fio->> 128064
+->> stress、memtester and fio are Stopped!
+=========== NO_10 Loss Disk Check End 2022-01-12 17:10:13  ===========

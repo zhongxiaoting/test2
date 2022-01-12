@@ -4,7 +4,7 @@ import controller
 sys.path.append("..")
 from station_func import HOST_CFG_SET, INFO_PROGRAMMING, RTC_CHECK, CPU_CHECK, DISK_CHECK, VENEER_HEALTH_CHECK, \
     MAC_ADDRESS_CHECK
-from station_stress import ELECTRONIC_TAG_CHECK, FW_CHECK, CPU_STRESS, MEM_STRESS
+from station_stress import CPU_STRESS, MEM_STRESS
 from station_stress import HDD_STRESS, STRESS_ALL, LAN_STRESS, MCE_ECC
 from station_final import LOG_CLEAN_TEST
 
@@ -28,10 +28,6 @@ def do(station_name, item):
             MAC_ADDRESS_CHECK.MAC_ADDRESS_CHECK(item).run_item()
     elif station_name == 'STATION_STRESS':
         name = item['name']
-        # if name == 'ELECTRONIC_TAG_CHECK':
-        #     ELECTRONIC_TAG_CHECK.ELECTRONIC_TAG_CHECK(item).run_item()
-        # if name == 'FW_CHECK':
-        #     FW_CHECK.FW_CHECK(item).run_item()
         if name == 'STRESS_ALL':
             STRESS_ALL.STRESS_ALL(item).run_item()
         if name == 'MCE_ECC':
