@@ -1,0 +1,4 @@
+[command: timedatectl set-ntp no]
+
+[command: cat /proc/driver/rtc]
+

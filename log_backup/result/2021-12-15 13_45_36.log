@@ -1,0 +1,108 @@
+Scan sn is: 123456
+Input operator is: 123456
+===================================
+STATION_FUNC 2021-12-15 13:43:51
+===================================
+======== RTC_CHECK 2021-12-15 13:43:51========
+
+[command: timedatectl set-ntp no]
+>> set_datetimetest is success!
+[command: cat /proc/driver/rtc]
+rtc_time	: 05:43:52
+rtc_date	: 2021-12-15
+24hr		: yes
+[command: cat /proc/driver/rtc]
+rtc_time	: 05:43:58
+rtc_date	: 2021-12-15
+24hr		: yes
+>> precision_checktest is success!
+======== RTC_CHECK PASS  2021-12-15 13:43:57========
+
+======== INFO_PROGRAMMING 2021-12-15 13:43:57========
+
+======== INFO_PROGRAMMING PASS  2021-12-15 13:44:02========
+
+======== HOST_CFG_SET 2021-12-15 13:44:02========
+
+======== HOST_CFG_SET PASS  2021-12-15 13:44:07========
+
+======== CPU_CHECK 2021-12-15 13:44:07========
+
+[command: dmidecode -t 4]
+Socket Designation: CPU0
+Socket Designation: CPU0
+Socket Designation: CPU0
+>>> 1
+Core Count: 2
+Core Count: 2
+Core Count: 4
+>>> 8
+Version: HUAWEI Kirin990
+Version: HUAWEI Kirin990
+Version: HUAWEI Kirin990
+>>> HUAWEI Kirin990
+Current Speed: 2860 MHz
+Current Speed: 2360 MHz
+Current Speed: 1950 MHz
+>>> 2860 MHz
+>>> 2360 MHz
+>>> 1950 MHz
+[command: cd tools && sh stress.sh]
+[command: stress -c 8 -t 10]
+========  CPU的负载测试 ========
+stress: info: [5384] dispatching hogs: 8 cpu, 0 io, 0 vm, 0 hdd
+stress: info: [5384] successful run completed in 10s
+================================
+>> cpu_loading_checktest is success!
+[command: cd tools && sh rasdaemon.sh]
+[command: ras-mc-ctl --summary]
+========  CPU MCE检测 ===========
+No Memory errors.
+
+No PCIe AER errors.
+
+No Extlog errors.
+No MCE errors.
+================================
+>> cpu_mce_checktest is success!
+======== DISK_CHECK 2021-12-15 13:44:18========
+
+[command: cd tools && transducer.sh]
+======== VENEER_HEALTH_CHECK 2021-12-15 13:44:18========
+
+[command: dmesg | grep -i warn]
+[   14.198394] [pid:1,cpu0,swapper/0,3]WARNING: CPU: 0 PID: 1 at kernel/sched/walt.c:536 walt_update_task_ravg.part.7+0x498/0xc18
+[   14.207824] [pid:1,cpu0,swapper/0,3]WARNING: CPU: 0 PID: 1 at arch/arm64/kernel/smp.c:422 smp_cpus_done+0x70/0x94
+======== MAC_ADDRESS_CHECK 2021-12-15 13:44:18========
+
+[command: ifconfig]
+===============================================
+STATION_FUNC PASS 2021-12-15 13:44:18
+===============================================
+
+===================================
+STATION_STRESS 2021-12-15 13:44:18
+===================================
+======== ELECTRONIC_TAG_CHECK 2021-12-15 13:44:18========
+
+======== ELECTRONIC_TAG_CHECK PASS  2021-12-15 13:44:23========
+
+======== FW_CHECK 2021-12-15 13:44:23========
+
+======== FW_CHECK PASS  2021-12-15 13:44:28========
+
+===============================================
+STATION_STRESS PASS 2021-12-15 13:44:28
+===============================================
+
+===================================
+STATION_FINAL 2021-12-15 13:44:28
+===================================
+======== LOG_CLEAN_TEST 2021-12-15 13:44:28========
+
+======== LOG_CLEAN_TEST PASS  2021-12-15 13:44:33========
+
+===============================================
+STATION_FINAL PASS 2021-12-15 13:44:33
+===============================================
+

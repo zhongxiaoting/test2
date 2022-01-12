@@ -1,0 +1,8 @@
+[command: cd tools && sh smartctl.sh]
+
+smartctl已经安装！
+ 
+[ sudo smartctl --all /dev/sde ]
+[command: cd tools && transducer.sh]
+
+None

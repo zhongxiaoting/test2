@@ -1,0 +1,16 @@
+===================================
+STATION_FUNC 2021-12-15 11:24:55
+===================================
+======== CPU_CHECK 2021-12-15 11:24:55========
+
+[command: cd tools && sh rasdaemon.sh]
+[command: ras-mc-ctl --summary]
+========  CPU MCE检测 ===========
+No Memory errors.
+
+No PCIe AER errors.
+
+No Extlog errors.
+No MCE errors.
+================================
+>> cpu_mce_checktest is success!

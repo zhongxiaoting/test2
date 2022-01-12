@@ -1,0 +1,70 @@
+Scan sn is: 1111111
+Input operator is: 11111111
+===================================
+STATION_FUNC 2021-12-15 11:25:40
+===================================
+======== RTC_CHECK 2021-12-15 11:25:40========
+
+[command: timedatectl set-ntp no]
+>> set_datetimetest is success!
+[command: cat /proc/driver/rtc]
+rtc_time	: 03:25:57
+rtc_date	: 2021-12-15
+24hr		: yes
+[command: cat /proc/driver/rtc]
+rtc_time	: 03:26:03
+rtc_date	: 2021-12-15
+24hr		: yes
+>> precision_checktest is success!
+======== RTC_CHECK PASS  2021-12-15 11:26:02========
+
+======== INFO_PROGRAMMING 2021-12-15 11:26:02========
+
+======== INFO_PROGRAMMING PASS  2021-12-15 11:26:08========
+
+======== HOST_CFG_SET 2021-12-15 11:26:08========
+
+======== HOST_CFG_SET PASS  2021-12-15 11:26:13========
+
+======== CPU_CHECK 2021-12-15 11:26:13========
+
+[command: dmidecode -t 4]
+Socket Designation: CPU0
+Socket Designation: CPU0
+Socket Designation: CPU0
+>>> 1
+Core Count: 2
+Core Count: 2
+Core Count: 4
+>>> 8
+Version: HUAWEI Kirin990
+Version: HUAWEI Kirin990
+Version: HUAWEI Kirin990
+>>> HUAWEI Kirin990
+Current Speed: 2860 MHz
+Current Speed: 2360 MHz
+Current Speed: 1950 MHz
+>>> 2860 MHz
+>>> 2360 MHz
+>>> 1950 MHz
+[command: cd tools && sh stress.sh]
+[command: stress -c 8 -t 10]
+========  CPU的负载测试 ========
+stress: info: [8505] dispatching hogs: 8 cpu, 0 io, 0 vm, 0 hdd
+stress: info: [8505] successful run completed in 10s
+================================
+>> cpu_loading_checktest is success!
+[command: cd tools && sh rasdaemon.sh]
+[command: ras-mc-ctl --summary]
+========  CPU MCE检测 ===========
+No Memory errors.
+
+No PCIe AER errors.
+
+No Extlog errors.
+No MCE errors.
+================================
+>> cpu_mce_checktest is success!
+======== DISK_CHECK 2021-12-15 11:26:23========
+
+[command: smartctl -i /dev/sdd]

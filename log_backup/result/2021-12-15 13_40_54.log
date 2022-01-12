@@ -1,0 +1,10 @@
+===================================
+STATION_FUNC 2021-12-15 13:40:48
+===================================
+======== DISK_CHECK 2021-12-15 13:40:48========
+
+[command: cd tools && sh smartctl.sh]
+smartctl已经安装！
+ 
+[ sudo smartctl --all /dev/sde ]
+[command: cd tools && transducer.sh]

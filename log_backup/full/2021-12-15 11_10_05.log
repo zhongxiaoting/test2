@@ -1,0 +1,3 @@
+[command: dmesg | grep -i warn]
+
+None

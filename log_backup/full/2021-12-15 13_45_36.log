@@ -1,0 +1,144 @@
+[command: timedatectl set-ntp no]
+
+[command: cat /proc/driver/rtc]
+
+[command: cat /proc/driver/rtc]
+
+[command: dmidecode -t 4]
+
+# dmidecode 3.2
+Getting SMBIOS data from sysfs.
+SMBIOS 3.2.0 present.
+
+Handle 0x000C, DMI type 4, 48 bytes
+Processor Information
+	Socket Designation: CPU0
+	Type: Central Processor
+	Family: ARM
+	Manufacturer: HISILICON
+	ID: 50 D0 1F 41 00 00 00 00
+	Signature: Implementor 0x41, Variant 0x1, Architecture 15, Part 0xd05, Revision 0
+	Version: HUAWEI Kirin990
+	Voltage: 1.8 V
+	External Clock: 38 MHz
+	Max Speed: 2860 MHz
+	Current Speed: 2860 MHz
+	Status: Populated, Enabled
+	Upgrade: Unknown
+	L1 Cache Handle: 0x0009
+	L2 Cache Handle: 0x000A
+	L3 Cache Handle: 0x000B
+	Serial Number: NULL
+	Asset Tag: NULL
+	Part Number: NULL
+	Core Count: 2
+	Core Enabled: 2
+	Thread Count: 2
+	Characteristics:
+		64-bit capable
+		Multi-Core
+		Execute Protection
+		Power/Performance Control
+
+Handle 0x000D, DMI type 4, 48 bytes
+Processor Information
+	Socket Designation: CPU0
+	Type: Central Processor
+	Family: ARM
+	Manufacturer: HISILICON
+	ID: 50 D0 1F 41 00 00 00 00
+	Signature: Implementor 0x41, Variant 0x1, Architecture 15, Part 0xd05, Revision 0
+	Version: HUAWEI Kirin990
+	Voltage: 1.8 V
+	External Clock: 38 MHz
+	Max Speed: 2360 MHz
+	Current Speed: 2360 MHz
+	Status: Populated, Enabled
+	Upgrade: Unknown
+	L1 Cache Handle: 0x0009
+	L2 Cache Handle: 0x000A
+	L3 Cache Handle: 0x000B
+	Serial Number: NULL
+	Asset Tag: NULL
+	Part Number: NULL
+	Core Count: 2
+	Core Enabled: 2
+	Thread Count: 2
+	Characteristics:
+		64-bit capable
+		Multi-Core
+		Execute Protection
+		Power/Performance Control
+
+Handle 0x000E, DMI type 4, 48 bytes
+Processor Information
+	Socket Designation: CPU0
+	Type: Central Processor
+	Family: ARM
+	Manufacturer: HISILICON
+	ID: 50 D0 1F 41 00 00 00 00
+	Signature: Implementor 0x41, Variant 0x1, Architecture 15, Part 0xd05, Revision 0
+	Version: HUAWEI Kirin990
+	Voltage: 1.8 V
+	External Clock: 38 MHz
+	Max Speed: 1950 MHz
+	Current Speed: 1950 MHz
+	Status: Populated, Enabled
+	Upgrade: Unknown
+	L1 Cache Handle: 0x0009
+	L2 Cache Handle: 0x000A
+	L3 Cache Handle: 0x000B
+	Serial Number: NULL
+	Asset Tag: NULL
+	Part Number: NULL
+	Core Count: 4
+	Core Enabled: 4
+	Thread Count: 4
+	Characteristics:
+		64-bit capable
+		Multi-Core
+		Execute Protection
+		Power/Performance Control
+
+[command: cd tools && sh stress.sh]
+
+[command: stress -c 8 -t 10]
+
+[command: cd tools && sh rasdaemon.sh]
+
+[command: ras-mc-ctl --summary]
+
+[command: cd tools && transducer.sh]
+
+None
+[command: dmesg | grep -i warn]
+
+[   14.198394] [pid:1,cpu0,swapper/0,3]WARNING: CPU: 0 PID: 1 at kernel/sched/walt.c:536 walt_update_task_ravg.part.7+0x498/0xc18
+[   14.207824] [pid:1,cpu0,swapper/0,3]WARNING: CPU: 0 PID: 1 at arch/arm64/kernel/smp.c:422 smp_cpus_done+0x70/0x94
+[command: ifconfig]
+
+enxdc333d0aa3fa: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether dc:33:3d:0a:a3:fa  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 11602  bytes 1196727 (1.1 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 11602  bytes 1196727 (1.1 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.188.50  netmask 255.255.255.0  broadcast 192.168.188.255
+        inet6 fe80::8a24:caa:ae77:85ae  prefixlen 64  scopeid 0x20<link>
+        ether dc:33:3d:0a:ab:17  txqueuelen 1000  (Ethernet)
+        RX packets 977034  bytes 832721844 (794.1 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 306797  bytes 36754297 (35.0 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+

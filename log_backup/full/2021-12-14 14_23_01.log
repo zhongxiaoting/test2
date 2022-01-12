@@ -1,0 +1,19 @@
+[command: smartctl -i /dev/sdd]
+
+smartctl 6.6 2017-11-05 r4594 [aarch64-linux-4.19.71-arm64-desktop] (local build)
+Copyright (C) 2002-17, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF INFORMATION SECTION ===
+Vendor:               SKhynix
+Product:              HN8T15BZGKX016
+Revision:             A002
+Compliance:           SPC-4
+User Capacity:        254,577,475,584 bytes [254 GB]
+Logical block size:   4096 bytes
+LU is thin provisioned, LBPRZ=0
+Rotation Rate:        Solid State Device
+Serial number:        261830D57AA0
+Device type:          disk
+Local Time is:        Tue Dec 14 14:21:51 2021 CST
+SMART support is:     Unavailable - device lacks SMART capability.
+

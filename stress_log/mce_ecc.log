@@ -1,0 +1,47 @@
+============  CPU MCE检测 2022-01-12 03:01:32 ===============
+No Memory errors.
+
+No PCIe AER errors.
+
+No Extlog errors.
+No MCE errors.
+=================== 2022-01-12 03:01:32 =============================
+->>  CPU MCE PASS
+=============== MEM ECC 检测 2022-01-12 03:01:33 =========================
+   1 | 12/13/2021 | 19:32:00 | System Event #0xff | Timestamp Clock Sync | Asserted
+   2 | 12/13/2021 | 20:18:14 | System Event #0xff | Timestamp Clock Sync | Asserted
+   3 | 12/13/2021 | 20:29:44 | System Event #0xff | Timestamp Clock Sync | Asserted
+   4 | 12/13/2021 | 20:56:59 | System Event #0xff | Timestamp Clock Sync | Asserted
+   5 | 12/13/2021 | 21:26:42 | System Event #0xff | Timestamp Clock Sync | Asserted
+   6 | 12/13/2021 | 21:28:47 | System Event #0xff | Timestamp Clock Sync | Asserted
+   7 | 12/13/2021 | 21:30:55 | System Event #0xff | Timestamp Clock Sync | Asserted
+   8 | 12/13/2021 | 21:33:13 | System Event #0xff | Timestamp Clock Sync | Asserted
+   9 | 12/13/2021 | 21:44:11 | System Event #0xff | Timestamp Clock Sync | Asserted
+   a | 12/13/2021 | 21:45:14 | System Event #0xff | Timestamp Clock Sync | Asserted
+   b | 12/13/2021 | 21:51:42 | OS Boot | Installation started | Asserted
+   c | 12/13/2021 | 22:33:27 | Power Supply #0xb2 | Power Supply AC lost | Asserted
+   d | 12/14/2021 | 13:43:35 | System Event #0xff | Timestamp Clock Sync | Asserted
+   e | 12/14/2021 | 14:03:29 | System Event #0xff | Timestamp Clock Sync | Asserted
+   f | 12/15/2021 | 16:11:43 | System Event #0xff | Timestamp Clock Sync | Asserted
+  10 | 12/15/2021 | 16:31:39 | System Event #0xff | Timestamp Clock Sync | Asserted
+  11 | 12/15/2021 | 16:37:37 | System Event #0xff | Timestamp Clock Sync | Asserted
+  12 | 12/15/2021 | 16:44:52 | System Event #0xff | Timestamp Clock Sync | Asserted
+  13 | 12/15/2021 | 16:48:55 | System Event #0xff | Timestamp Clock Sync | Asserted
+  14 | 12/15/2021 | 16:55:59 | System Event #0xff | Timestamp Clock Sync | Asserted
+  15 | 12/15/2021 | 17:57:10 | System Event #0xff | Timestamp Clock Sync | Asserted
+  16 | 12/15/2021 | 17:59:24 | System Event #0xff | Timestamp Clock Sync | Asserted
+  17 | 12/15/2021 | 18:37:46 | System Event #0xff | Timestamp Clock Sync | Asserted
+  18 | 12/15/2021 | 18:44:38 | System Event #0xff | Timestamp Clock Sync | Asserted
+  19 | 12/15/2021 | 18:49:36 | System Event #0xff | Timestamp Clock Sync | Asserted
+  1a | 12/15/2021 | 18:58:24 | System Event #0xff | Timestamp Clock Sync | Asserted
+  1b | 12/15/2021 | 19:09:06 | System Event #0xff | Timestamp Clock Sync | Asserted
+  1c | 12/15/2021 | 19:22:06 | System Event #0xff | Timestamp Clock Sync | Asserted
+  1d | 12/15/2021 | 19:28:03 | System Event #0xff | Timestamp Clock Sync | Asserted
+  1e | 12/15/2021 | 19:31:37 | OS Boot | Installation started | Asserted
+  1f | 12/15/2021 | 19:37:30 | OS Boot | Installation completed | Asserted
+  20 | 12/15/2021 | 19:43:33 | System Event #0xff | Timestamp Clock Sync | Asserted
+  21 | 12/23/2021 | 07:23:44 | System Event #0xff | Timestamp Clock Sync | Asserted
+  22 | 12/24/2021 | 06:16:28 | System Event #0xff | Timestamp Clock Sync | Asserted
+  23 | 01/06/2022 | 06:54:25 | System Event #0xff | Timestamp Clock Sync | Asserted
+========================= 2022-01-12 03:01:33 ===================================
+->> MEM ECC PASS

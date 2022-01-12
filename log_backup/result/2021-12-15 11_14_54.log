@@ -1,0 +1,13 @@
+Scan sn is: 111111
+Input operator is: 111111
+===================================
+STATION_FUNC 2021-12-15 11:14:16
+===================================
+======== RTC_CHECK 2021-12-15 11:14:16========
+
+[command: timedatectl set-ntp no]
+>> set_datetimetest is fail!
+[command: cat /proc/driver/rtc]
+rtc_time	: 03:14:35
+rtc_date	: 2021-12-15
+24hr		: yes

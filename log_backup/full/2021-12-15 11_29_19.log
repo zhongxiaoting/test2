@@ -1,0 +1,113 @@
+[command: timedatectl set-ntp no]
+
+[command: cat /proc/driver/rtc]
+
+[command: cat /proc/driver/rtc]
+
+[command: dmidecode -t 4]
+
+# dmidecode 3.2
+Getting SMBIOS data from sysfs.
+SMBIOS 3.2.0 present.
+
+Handle 0x000C, DMI type 4, 48 bytes
+Processor Information
+	Socket Designation: CPU0
+	Type: Central Processor
+	Family: ARM
+	Manufacturer: HISILICON
+	ID: 50 D0 1F 41 00 00 00 00
+	Signature: Implementor 0x41, Variant 0x1, Architecture 15, Part 0xd05, Revision 0
+	Version: HUAWEI Kirin990
+	Voltage: 1.8 V
+	External Clock: 38 MHz
+	Max Speed: 2860 MHz
+	Current Speed: 2860 MHz
+	Status: Populated, Enabled
+	Upgrade: Unknown
+	L1 Cache Handle: 0x0009
+	L2 Cache Handle: 0x000A
+	L3 Cache Handle: 0x000B
+	Serial Number: NULL
+	Asset Tag: NULL
+	Part Number: NULL
+	Core Count: 2
+	Core Enabled: 2
+	Thread Count: 2
+	Characteristics:
+		64-bit capable
+		Multi-Core
+		Execute Protection
+		Power/Performance Control
+
+Handle 0x000D, DMI type 4, 48 bytes
+Processor Information
+	Socket Designation: CPU0
+	Type: Central Processor
+	Family: ARM
+	Manufacturer: HISILICON
+	ID: 50 D0 1F 41 00 00 00 00
+	Signature: Implementor 0x41, Variant 0x1, Architecture 15, Part 0xd05, Revision 0
+	Version: HUAWEI Kirin990
+	Voltage: 1.8 V
+	External Clock: 38 MHz
+	Max Speed: 2360 MHz
+	Current Speed: 2360 MHz
+	Status: Populated, Enabled
+	Upgrade: Unknown
+	L1 Cache Handle: 0x0009
+	L2 Cache Handle: 0x000A
+	L3 Cache Handle: 0x000B
+	Serial Number: NULL
+	Asset Tag: NULL
+	Part Number: NULL
+	Core Count: 2
+	Core Enabled: 2
+	Thread Count: 2
+	Characteristics:
+		64-bit capable
+		Multi-Core
+		Execute Protection
+		Power/Performance Control
+
+Handle 0x000E, DMI type 4, 48 bytes
+Processor Information
+	Socket Designation: CPU0
+	Type: Central Processor
+	Family: ARM
+	Manufacturer: HISILICON
+	ID: 50 D0 1F 41 00 00 00 00
+	Signature: Implementor 0x41, Variant 0x1, Architecture 15, Part 0xd05, Revision 0
+	Version: HUAWEI Kirin990
+	Voltage: 1.8 V
+	External Clock: 38 MHz
+	Max Speed: 1950 MHz
+	Current Speed: 1950 MHz
+	Status: Populated, Enabled
+	Upgrade: Unknown
+	L1 Cache Handle: 0x0009
+	L2 Cache Handle: 0x000A
+	L3 Cache Handle: 0x000B
+	Serial Number: NULL
+	Asset Tag: NULL
+	Part Number: NULL
+	Core Count: 4
+	Core Enabled: 4
+	Thread Count: 4
+	Characteristics:
+		64-bit capable
+		Multi-Core
+		Execute Protection
+		Power/Performance Control
+
+[command: cd tools && sh stress.sh]
+
+[command: stress -c 8 -t 10]
+
+[command: cd tools && sh rasdaemon.sh]
+
+[command: ras-mc-ctl --summary]
+
+[command: smartctl -i /dev/sdd]
+
+None

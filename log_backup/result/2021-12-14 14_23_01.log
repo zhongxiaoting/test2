@@ -1,0 +1,10 @@
+===================================
+STATION_FUNC 2021-12-14 14:21:51
+===================================
+======== DISK_CHECK 2021-12-14 14:21:51========
+
+[command: smartctl -i /dev/sdd]
+Product:              HN8T15BZGKX016
+Vendor:               SKhynix
+>>> HN8T15BZGKX016
+>>> SKhynix

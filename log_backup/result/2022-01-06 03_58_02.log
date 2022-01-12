@@ -1,0 +1,9 @@
+===================================
+STATION_STRESS 2022-01-06 03:43:20
+===================================
+======== STRESS_ALL 2022-01-06 03:43:20========
+
+>> random_read_writetest is success!
+>> stress_checktest is success!
+>> mem_checktest is success!
+>> random_readtest is success!

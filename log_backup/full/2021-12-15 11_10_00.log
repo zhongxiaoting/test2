@@ -1,0 +1,3 @@
+[command: smartctl -i /dev/sdd]
+
+None

@@ -1,0 +1,4 @@
+[command: dmesg | grep -i warn]
+
+[   14.198394] [pid:1,cpu0,swapper/0,3]WARNING: CPU: 0 PID: 1 at kernel/sched/walt.c:536 walt_update_task_ravg.part.7+0x498/0xc18
+[   14.207824] [pid:1,cpu0,swapper/0,3]WARNING: CPU: 0 PID: 1 at arch/arm64/kernel/smp.c:422 smp_cpus_done+0x70/0x94

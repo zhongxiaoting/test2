@@ -1,0 +1,18 @@
+[command: cat /proc/cpuinfo | grep -c processor]
+
+[command: cat /proc/stat|head -n 1]
+
+[command: lspci | grep "RAID" ]
+
+[command: ps -ef | grep "stress" | grep "[0-9]$" ]
+
+[command: find /dev/ -name "sd*" | grep -E "sd[a-z]$" | sort ]
+
+[command: find /dev/ -name "nvme*" | grep -E "nvme[0-9][a-z][0-9]$" | sort ]
+
+[command: ps -ef | grep "memtester" | grep "[0-9]$" ]
+
+[command: ps -ef | grep "fio" | grep "mytest_[0-9]$" ]
+
+[command: stress -c 71 -t 300 ]
+

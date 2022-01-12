@@ -1,0 +1,430 @@
+[command: timedatectl set-ntp no]
+
+[command: cat /proc/driver/rtc]
+
+[command: cat /proc/driver/rtc]
+
+[command: dmidecode -t 4]
+
+# dmidecode 3.2
+Getting SMBIOS data from sysfs.
+SMBIOS 3.2.0 present.
+
+Handle 0x000C, DMI type 4, 48 bytes
+Processor Information
+	Socket Designation: CPU0
+	Type: Central Processor
+	Family: ARM
+	Manufacturer: HISILICON
+	ID: 50 D0 1F 41 00 00 00 00
+	Signature: Implementor 0x41, Variant 0x1, Architecture 15, Part 0xd05, Revision 0
+	Version: HUAWEI Kirin990
+	Voltage: 1.8 V
+	External Clock: 38 MHz
+	Max Speed: 2860 MHz
+	Current Speed: 2860 MHz
+	Status: Populated, Enabled
+	Upgrade: Unknown
+	L1 Cache Handle: 0x0009
+	L2 Cache Handle: 0x000A
+	L3 Cache Handle: 0x000B
+	Serial Number: NULL
+	Asset Tag: NULL
+	Part Number: NULL
+	Core Count: 2
+	Core Enabled: 2
+	Thread Count: 2
+	Characteristics:
+		64-bit capable
+		Multi-Core
+		Execute Protection
+		Power/Performance Control
+
+Handle 0x000D, DMI type 4, 48 bytes
+Processor Information
+	Socket Designation: CPU0
+	Type: Central Processor
+	Family: ARM
+	Manufacturer: HISILICON
+	ID: 50 D0 1F 41 00 00 00 00
+	Signature: Implementor 0x41, Variant 0x1, Architecture 15, Part 0xd05, Revision 0
+	Version: HUAWEI Kirin990
+	Voltage: 1.8 V
+	External Clock: 38 MHz
+	Max Speed: 2360 MHz
+	Current Speed: 2360 MHz
+	Status: Populated, Enabled
+	Upgrade: Unknown
+	L1 Cache Handle: 0x0009
+	L2 Cache Handle: 0x000A
+	L3 Cache Handle: 0x000B
+	Serial Number: NULL
+	Asset Tag: NULL
+	Part Number: NULL
+	Core Count: 2
+	Core Enabled: 2
+	Thread Count: 2
+	Characteristics:
+		64-bit capable
+		Multi-Core
+		Execute Protection
+		Power/Performance Control
+
+Handle 0x000E, DMI type 4, 48 bytes
+Processor Information
+	Socket Designation: CPU0
+	Type: Central Processor
+	Family: ARM
+	Manufacturer: HISILICON
+	ID: 50 D0 1F 41 00 00 00 00
+	Signature: Implementor 0x41, Variant 0x1, Architecture 15, Part 0xd05, Revision 0
+	Version: HUAWEI Kirin990
+	Voltage: 1.8 V
+	External Clock: 38 MHz
+	Max Speed: 1950 MHz
+	Current Speed: 1950 MHz
+	Status: Populated, Enabled
+	Upgrade: Unknown
+	L1 Cache Handle: 0x0009
+	L2 Cache Handle: 0x000A
+	L3 Cache Handle: 0x000B
+	Serial Number: NULL
+	Asset Tag: NULL
+	Part Number: NULL
+	Core Count: 4
+	Core Enabled: 4
+	Thread Count: 4
+	Characteristics:
+		64-bit capable
+		Multi-Core
+		Execute Protection
+		Power/Performance Control
+
+[command: cd tools && sh stress.sh]
+
+[command: stress -c 8 -t 10]
+
+[command: cd tools && sh rasdaemon.sh]
+
+[command: ras-mc-ctl --summary]
+
+[command: sudo smartctl -a /dev/sde]
+
+smartctl 6.6 2017-11-05 r4594 [aarch64-linux-4.19.71-arm64-desktop] (local build)
+Copyright (C) 2002-17, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF INFORMATION SECTION ===
+Model Family:     Seagate Barracuda 3.5
+Device Model:     ST1000DM010-2EP102
+Serial Number:    ZN1Q484R
+LU WWN Device Id: 5 000c50 0db4aebd3
+Firmware Version: CC46
+User Capacity:    1,000,204,886,016 bytes [1.00 TB]
+Sector Sizes:     512 bytes logical, 4096 bytes physical
+Rotation Rate:    7200 rpm
+Form Factor:      3.5 inches
+Device is:        In smartctl database [for details use: -P show]
+ATA Version is:   ATA8-ACS T13/1699-D revision 4
+SATA Version is:  SATA 3.0, 6.0 Gb/s (current: 6.0 Gb/s)
+Local Time is:    Wed Dec 15 13:54:09 2021 CST
+SMART support is: Available - device has SMART capability.
+SMART support is: Enabled
+
+=== START OF READ SMART DATA SECTION ===
+SMART overall-health self-assessment test result: PASSED
+
+General SMART Values:
+Offline data collection status:  (0x82)	Offline data collection activity
+					was completed without error.
+					Auto Offline Data Collection: Enabled.
+Self-test execution status:      (   0)	The previous self-test routine completed
+					without error or no self-test has ever 
+					been run.
+Total time to complete Offline 
+data collection: 		(    0) seconds.
+Offline data collection
+capabilities: 			 (0x7b) SMART execute Offline immediate.
+					Auto Offline data collection on/off support.
+					Suspend Offline collection upon new
+					command.
+					Offline surface scan supported.
+					Self-test supported.
+					Conveyance Self-test supported.
+					Selective Self-test supported.
+SMART capabilities:            (0x0003)	Saves SMART data before entering
+					power-saving mode.
+					Supports SMART auto save timer.
+Error logging capability:        (0x01)	Error logging supported.
+					General Purpose Logging supported.
+Short self-test routine 
+recommended polling time: 	 (   1) minutes.
+Extended self-test routine
+recommended polling time: 	 ( 108) minutes.
+Conveyance self-test routine
+recommended polling time: 	 (   2) minutes.
+SCT capabilities: 	       (0x1085)	SCT Status supported.
+
+SMART Attributes Data Structure revision number: 10
+Vendor Specific SMART Attributes with Thresholds:
+ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+  1 Raw_Read_Error_Rate     0x000f   075   065   006    Pre-fail  Always       -       35712890
+  3 Spin_Up_Time            0x0003   097   097   000    Pre-fail  Always       -       0
+  4 Start_Stop_Count        0x0032   100   100   020    Old_age   Always       -       48
+  5 Reallocated_Sector_Ct   0x0033   100   100   010    Pre-fail  Always       -       0
+  7 Seek_Error_Rate         0x000f   100   253   045    Pre-fail  Always       -       76710
+  9 Power_On_Hours          0x0032   100   100   000    Old_age   Always       -       270
+ 10 Spin_Retry_Count        0x0013   100   100   097    Pre-fail  Always       -       0
+ 12 Power_Cycle_Count       0x0032   100   100   020    Old_age   Always       -       36
+183 Runtime_Bad_Block       0x0032   100   100   000    Old_age   Always       -       0
+184 End-to-End_Error        0x0032   100   100   099    Old_age   Always       -       0
+187 Reported_Uncorrect      0x0032   100   100   000    Old_age   Always       -       0
+188 Command_Timeout         0x0032   100   100   000    Old_age   Always       -       0 0 0
+189 High_Fly_Writes         0x003a   100   100   000    Old_age   Always       -       0
+190 Airflow_Temperature_Cel 0x0022   062   057   040    Old_age   Always       -       38 (Min/Max 35/39)
+193 Load_Cycle_Count        0x0032   100   100   000    Old_age   Always       -       52
+194 Temperature_Celsius     0x0022   038   020   000    Old_age   Always       -       38 (0 20 0 0 0)
+195 Hardware_ECC_Recovered  0x001a   008   008   000    Old_age   Always       -       35712890
+197 Current_Pending_Sector  0x0012   100   100   000    Old_age   Always       -       0
+198 Offline_Uncorrectable   0x0010   100   100   000    Old_age   Offline      -       0
+199 UDMA_CRC_Error_Count    0x003e   200   200   000    Old_age   Always       -       0
+240 Head_Flying_Hours       0x0000   100   253   000    Old_age   Offline      -       206h+02m+49.951s
+241 Total_LBAs_Written      0x0000   100   253   000    Old_age   Offline      -       32667398
+242 Total_LBAs_Read         0x0000   100   253   000    Old_age   Offline      -       3045492
+
+SMART Error Log Version: 1
+No Errors Logged
+
+SMART Self-test log structure revision number 1
+No self-tests have been logged.  [To run self-tests, use: smartctl -t]
+
+SMART Selective self-test log data structure revision number 1
+ SPAN  MIN_LBA  MAX_LBA  CURRENT_TEST_STATUS
+    1        0        0  Not_testing
+    2        0        0  Not_testing
+    3        0        0  Not_testing
+    4        0        0  Not_testing
+    5        0        0  Not_testing
+Selective self-test flags (0x0):
+  After scanning selected spans, do NOT read-scan remainder of disk.
+If Selective self-test is pending on power-up, resume after 0 minute delay.
+
+[command: sudo smartctl -i /dev/sdd]
+
+smartctl 6.6 2017-11-05 r4594 [aarch64-linux-4.19.71-arm64-desktop] (local build)
+Copyright (C) 2002-17, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF INFORMATION SECTION ===
+Vendor:               SKhynix
+Product:              HN8T15BZGKX016
+Revision:             A002
+Compliance:           SPC-4
+User Capacity:        254,577,475,584 bytes [254 GB]
+Logical block size:   4096 bytes
+LU is thin provisioned, LBPRZ=0
+Rotation Rate:        Solid State Device
+Serial number:        261830D57AA0
+Device type:          disk
+Local Time is:        Wed Dec 15 13:54:09 2021 CST
+SMART support is:     Unavailable - device lacks SMART capability.
+
+[command: cd tools && sh fio.sh]
+
+正在读取软件包列表...
+正在分析软件包的依赖关系树...
+正在读取状态信息...
+下列软件包是自动安装的并且现在不需要了：
+  gir1.2-harfbuzz-0.0 golang-gir-gio-2.0-dev golang-gir-glib-2.0-dev
+  golang-gir-gobject-2.0-dev golang-github-cryptix-wav-dev
+  golang-github-gavv-monotime-dev golang-github-kr-pretty-dev
+  golang-github-kr-pty-dev golang-github-kr-text-dev
+  golang-github-linuxdeepin-go-x11-client-dev
+  golang-github-mozillazg-go-pinyin-dev golang-golang-x-image-dev
+  golang-golang-x-net-dev golang-golang-x-text-dev golang-golang-x-tools-dev
+  golang-gopkg-check.v1-dev libatk-bridge2.0-dev libatk1.0-dev libatspi2.0-dev
+  libcairo-script-interpreter2 libepoxy-dev libexpat1-dev libfribidi-dev
+  libgraphite2-dev libharfbuzz-dev libharfbuzz-gobject0 libpam0g-dev
+  libpixman-1-dev libxcb-shm0-dev libxcomposite-dev libxtst-dev pango1.0-tools
+  wayland-protocols x11proto-composite-dev x11proto-record-dev
+使用'sudo apt autoremove'来卸载它(它们)。
+建议安装：
+  gnuplot gfio python-scipy
+下列【新】软件包将被安装：
+  fio
+升级了 0 个软件包，新安装了 1 个软件包，要卸载 0 个软件包，有 53 个软件包未被升级。
+需要下载 0 B/473 kB 的归档。
+解压缩后会消耗 1,860 kB 的额外空间。
+正在选中未选择的软件包 fio。
+(正在读取数据库 ... (正在读取数据库 ... 5%(正在读取数据库 ... 10%(正在读取数据库 ... 15%(正在读取数据库 ... 20%(正在读取数据库 ... 25%(正在读取数据库 ... 30%(正在读取数据库 ... 35%(正在读取数据库 ... 40%(正在读取数据库 ... 45%(正在读取数据库 ... 50%(正在读取数据库 ... 55%(正在读取数据库 ... 60%(正在读取数据库 ... 65%(正在读取数据库 ... 70%(正在读取数据库 ... 75%(正在读取数据库 ... 80%(正在读取数据库 ... 85%(正在读取数据库 ... 90%(正在读取数据库 ... 95%(正在读取数据库 ... 100%(正在读取数据库 ... 系统当前共安装有 231986 个文件和目录。)
+准备解压 .../archives/fio_3.12-2_arm64.deb  ...
+正在解压 fio (3.12-2) ...
+正在设置 fio (3.12-2) ...
+正在处理用于 man-db (2.8.5-2) 的触发器 ...
+fio安装成功！
+ 
+[ sudo fio -filename=/dev/sde -direct=1 -iodepth 1 -thread -rw=randread -ioengine=psync -bs=16k -size=2G-numjobs=10 -runtime=10 -group_reporting -name=mytest ]
+mytest: (g=0): rw=randread, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
+fio-3.12
+Starting 1 thread
+
+mytest: (groupid=0, jobs=1): err= 0: pid=12065: Wed Dec 15 13:54:22 2021
+  read: IOPS=68, BW=1098KiB/s (1124kB/s)(5504KiB/5013msec)
+    clat (usec): min=4758, max=26660, avg=14560.96, stdev=4237.60
+     lat (usec): min=4759, max=26660, avg=14561.59, stdev=4237.58
+    clat percentiles (usec):
+     |  1.00th=[ 5932],  5.00th=[ 7701], 10.00th=[ 9241], 20.00th=[10814],
+     | 30.00th=[11994], 40.00th=[13304], 50.00th=[14353], 60.00th=[15795],
+     | 70.00th=[16909], 80.00th=[18220], 90.00th=[20317], 95.00th=[21890],
+     | 99.00th=[23200], 99.50th=[25822], 99.90th=[26608], 99.95th=[26608],
+     | 99.99th=[26608]
+   bw (  KiB/s): min= 1024, max= 1213, per=100.00%, avg=1097.00, stdev=66.86, samples=10
+   iops        : min=   64, max=   75, avg=68.40, stdev= 4.01, samples=10
+  lat (msec)   : 10=15.12%, 20=74.13%, 50=10.76%
+  cpu          : usr=0.00%, sys=0.34%, ctx=345, majf=0, minf=4
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=344,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=1098KiB/s (1124kB/s), 1098KiB/s-1098KiB/s (1124kB/s-1124kB/s), io=5504KiB (5636kB), run=5013-5013msec
+
+Disk stats (read/write):
+  sde: ios=335/0, merge=0/0, ticks=4857/0, in_queue=4872, util=97.65%
+[command: cd tools && sh smartctl.sh]
+
+smartctl已经安装！
+ 
+[ sudo smartctl --all /dev/sde ]
+smartctl 6.6 2017-11-05 r4594 [aarch64-linux-4.19.71-arm64-desktop] (local build)
+Copyright (C) 2002-17, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF INFORMATION SECTION ===
+Model Family:     Seagate Barracuda 3.5
+Device Model:     ST1000DM010-2EP102
+Serial Number:    ZN1Q484R
+LU WWN Device Id: 5 000c50 0db4aebd3
+Firmware Version: CC46
+User Capacity:    1,000,204,886,016 bytes [1.00 TB]
+Sector Sizes:     512 bytes logical, 4096 bytes physical
+Rotation Rate:    7200 rpm
+Form Factor:      3.5 inches
+Device is:        In smartctl database [for details use: -P show]
+ATA Version is:   ATA8-ACS T13/1699-D revision 4
+SATA Version is:  SATA 3.0, 6.0 Gb/s (current: 6.0 Gb/s)
+Local Time is:    Wed Dec 15 13:54:22 2021 CST
+SMART support is: Available - device has SMART capability.
+SMART support is: Enabled
+
+=== START OF READ SMART DATA SECTION ===
+SMART overall-health self-assessment test result: PASSED
+
+General SMART Values:
+Offline data collection status:  (0x82)	Offline data collection activity
+					was completed without error.
+					Auto Offline Data Collection: Enabled.
+Self-test execution status:      (   0)	The previous self-test routine completed
+					without error or no self-test has ever 
+					been run.
+Total time to complete Offline 
+data collection: 		(    0) seconds.
+Offline data collection
+capabilities: 			 (0x7b) SMART execute Offline immediate.
+					Auto Offline data collection on/off support.
+					Suspend Offline collection upon new
+					command.
+					Offline surface scan supported.
+					Self-test supported.
+					Conveyance Self-test supported.
+					Selective Self-test supported.
+SMART capabilities:            (0x0003)	Saves SMART data before entering
+					power-saving mode.
+					Supports SMART auto save timer.
+Error logging capability:        (0x01)	Error logging supported.
+					General Purpose Logging supported.
+Short self-test routine 
+recommended polling time: 	 (   1) minutes.
+Extended self-test routine
+recommended polling time: 	 ( 108) minutes.
+Conveyance self-test routine
+recommended polling time: 	 (   2) minutes.
+SCT capabilities: 	       (0x1085)	SCT Status supported.
+
+SMART Attributes Data Structure revision number: 10
+Vendor Specific SMART Attributes with Thresholds:
+ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+  1 Raw_Read_Error_Rate     0x000f   075   065   006    Pre-fail  Always       -       35723898
+  3 Spin_Up_Time            0x0003   097   097   000    Pre-fail  Always       -       0
+  4 Start_Stop_Count        0x0032   100   100   020    Old_age   Always       -       48
+  5 Reallocated_Sector_Ct   0x0033   100   100   010    Pre-fail  Always       -       0
+  7 Seek_Error_Rate         0x000f   100   253   045    Pre-fail  Always       -       77055
+  9 Power_On_Hours          0x0032   100   100   000    Old_age   Always       -       270
+ 10 Spin_Retry_Count        0x0013   100   100   097    Pre-fail  Always       -       0
+ 12 Power_Cycle_Count       0x0032   100   100   020    Old_age   Always       -       36
+183 Runtime_Bad_Block       0x0032   100   100   000    Old_age   Always       -       0
+184 End-to-End_Error        0x0032   100   100   099    Old_age   Always       -       0
+187 Reported_Uncorrect      0x0032   100   100   000    Old_age   Always       -       0
+188 Command_Timeout         0x0032   100   100   000    Old_age   Always       -       0 0 0
+189 High_Fly_Writes         0x003a   100   100   000    Old_age   Always       -       0
+190 Airflow_Temperature_Cel 0x0022   062   057   040    Old_age   Always       -       38 (Min/Max 35/39)
+193 Load_Cycle_Count        0x0032   100   100   000    Old_age   Always       -       52
+194 Temperature_Celsius     0x0022   038   020   000    Old_age   Always       -       38 (0 20 0 0 0)
+195 Hardware_ECC_Recovered  0x001a   008   008   000    Old_age   Always       -       35723898
+197 Current_Pending_Sector  0x0012   100   100   000    Old_age   Always       -       0
+198 Offline_Uncorrectable   0x0010   100   100   000    Old_age   Offline      -       0
+199 UDMA_CRC_Error_Count    0x003e   200   200   000    Old_age   Always       -       0
+240 Head_Flying_Hours       0x0000   100   253   000    Old_age   Offline      -       206h+03m+03.623s
+241 Total_LBAs_Written      0x0000   100   253   000    Old_age   Offline      -       32667398
+242 Total_LBAs_Read         0x0000   100   253   000    Old_age   Offline      -       3056500
+
+SMART Error Log Version: 1
+No Errors Logged
+
+SMART Self-test log structure revision number 1
+No self-tests have been logged.  [To run self-tests, use: smartctl -t]
+
+SMART Selective self-test log data structure revision number 1
+ SPAN  MIN_LBA  MAX_LBA  CURRENT_TEST_STATUS
+    1        0        0  Not_testing
+    2        0        0  Not_testing
+    3        0        0  Not_testing
+    4        0        0  Not_testing
+    5        0        0  Not_testing
+Selective self-test flags (0x0):
+  After scanning selected spans, do NOT read-scan remainder of disk.
+If Selective self-test is pending on power-up, resume after 0 minute delay.
+
+[command: cd tools && transducer.sh]
+
+None
+[command: dmesg | grep -i warn]
+
+[   14.198394] [pid:1,cpu0,swapper/0,3]WARNING: CPU: 0 PID: 1 at kernel/sched/walt.c:536 walt_update_task_ravg.part.7+0x498/0xc18
+[   14.207824] [pid:1,cpu0,swapper/0,3]WARNING: CPU: 0 PID: 1 at arch/arm64/kernel/smp.c:422 smp_cpus_done+0x70/0x94
+[command: ifconfig]
+
+enxdc333d0aa3fa: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether dc:33:3d:0a:a3:fa  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 11667  bytes 1203002 (1.1 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 11667  bytes 1203002 (1.1 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.188.50  netmask 255.255.255.0  broadcast 192.168.188.255
+        inet6 fe80::8a24:caa:ae77:85ae  prefixlen 64  scopeid 0x20<link>
+        ether dc:33:3d:0a:ab:17  txqueuelen 1000  (Ethernet)
+        RX packets 979822  bytes 833147763 (794.5 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 306980  bytes 36773705 (35.0 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
