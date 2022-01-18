@@ -32,7 +32,7 @@ class HDD_STRESS(Item):
             write_log("Begin NO." + str(i) + " the non-system disk read and write")
             shell = "fio -filename={} -direct=1 -iodepth 1" \
                     " -thread -rw=randrw -ioengine=psync -bs=16k" \
-                    " -size=2G -numjobs=10 -runtime=20 -group_reporting" \
+                    " -size=50% -numjobs=10 -runtime=20 -group_reporting" \
                     " -name=mytest_{}".format(disk, i)
             read_and_write = self.run_cmd(shell)
             # write_log("========== 开始对非系统盘进行读写测试 ==========")
@@ -47,6 +47,7 @@ class HDD_STRESS(Item):
     @decorator.item_test
     def random_read(self):
         os_disk = self.get_os_disk()
+        self.run_cmd("mkdir /test")
         shell = "fio -directory=/test -direct=1 -iodepth 1" \
                 " -thread -rw=randread -ioengine=psync -bs=16k -size=2G" \
                 " -numjobs=10 -runtime=20 -group_reporting -name=mytest_0"
@@ -113,7 +114,8 @@ class HDD_STRESS(Item):
             list_disk.append(units)
             if len(list_disk[i]) == 7:
                 if list_disk[i][-1] == '/boot':
-                    os_disk = list_disk[i - 2][0]
+                    os_num = int(list_disk[i][0][-1])
+                    os_disk = list_disk[i - os_num][0]
             i += 1
         write_log("->>> System Disk is : " + os_disk)
         return os_disk

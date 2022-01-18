@@ -36,7 +36,7 @@ class CPU_STRESS(Item):
 
     @decorator.item_test
     def stress_check(self):
-        self.run_seconds = 100
+        self.run_seconds = 86400
         threadnum = self.get_thread_num()
         cv.remove_log(c.CPU_STRESS_LOG_PATH)
         shell = "stress -c {} -t {} ".format(threadnum, self.run_seconds)

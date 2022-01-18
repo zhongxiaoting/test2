@@ -10,9 +10,9 @@ from CPU_STRESS import CPU_STRESS
 from MEM_STRESS import MEM_STRESS
 from HDD_STRESS import HDD_STRESS
 from LOSS_DISK import LOSS_DISK
-from check_log import ALL_STRESS_LOG
+from check_stress_log import ALL_STRESS_LOG
 from LAN_STRESS import LAN_STRESS
-
+import MCE_ECC
 sys.path.append("..")
 
 """
@@ -26,12 +26,13 @@ class STRESS_ALL(Item):
         self.info = info
 
     def run_item(self):
+        MCE_ECC.MCE_ECC(Item).run_item()
         self.all_stress_check()
         # LOSS_DISK().run_item()
 
     def all_stress_check(self):
         items_run = []
-        items = ['CPU_STRESS', 'MEM_STRESS', 'HDD_STRESS', 'LAN_STRESS', 'LOSS_DISK', 'check_all']
+        items = ['CPU_STRESS', 'MEM_STRESS', 'HDD_STRESS', 'LAN_STRESS', 'LOSS_DISK', 'check_stress_log']
         for item in items:
             items_run.append(self.get_item_by_name(item))
         for stress_item in items_run:
@@ -51,7 +52,7 @@ class STRESS_ALL(Item):
             return LAN_STRESS(Item)
         if name == 'LOSS_DISK':
             return LOSS_DISK()
-        if name == 'check_all':
+        if name == 'check_stress_log':
             return ALL_STRESS_LOG()
 
 

@@ -21,7 +21,8 @@ class LAN_STRESS(Item):
     def start_lan_run(self):
         cv.remove_log(c.LAN_STRESS_LOG_PATH)
         write_log("=============  LAN Stress Check Begin  " + get_local_time_string() + " ================")
-        self.run_cmd("sh /home/test2/lan_stress/eth.sh")
+        lan_infor = self.run_cmd("sh /home/test2/lan_stress/eth.sh")
+        write_log(lan_infor)
         write_log("==============  LAN Stress Check End  " + get_local_time_string() + " =================")
 
 

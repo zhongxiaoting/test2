@@ -1,6 +1,0 @@
-=============  CPU Stress Check Begin  2022-01-12 17:07:53 ================
-The Command Line ->>> stress -c 39 -t 100 
-
-stress: info: [119310] dispatching hogs: 39 cpu, 0 io, 0 vm, 0 hdd
-stress: info: [119310] successful run completed in 100s
-==============  CPU Stress Check End  2022-01-12 17:09:33 =================

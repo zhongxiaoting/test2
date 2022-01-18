@@ -1,4 +1,4 @@
-if [ $# == 0 ]; then
+﻿if [ $# == 0 ]; then
     python ./launch.py
 elif [ $# == 1 ]; then
     python ./launch.py $1

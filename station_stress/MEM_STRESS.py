@@ -27,14 +27,14 @@ class MEM_STRESS(Item):
 
     def mem_check(self):
         cv.remove_log(c.MEM_STRESS_LOG_PATH)
-        free_mem = 1024
-        # free_mem = self.get_mem() * 0.98
+        # free_mem = 10240
+        free_mem = self.get_mem() * 0.98
         write_log("=============  MEM Stress Check Begin  " + get_local_time_string() + " ================")
-        shell = "memtester {} 1 >> {}".format(int(free_mem), c.MEM_STRESS_LOG_PATH)
+        shell = "timeout 24h memtester {} 1 >> {}".format(int(free_mem), c.MEM_STRESS_LOG_PATH)
         write_log("The Command Line ->>> " + shell + "\n")
         mem_infor = self.run_cmd(shell)
-        # write_log(mem_infor)
-        write_log("==============  MEM Stress Check End  " + get_local_time_string() + " =================")
+        print(mem_infor)
+        write_log("\n" + "==============  MEM Stress Check End  " + get_local_time_string() + " =================")
         return mem_infor
 
 

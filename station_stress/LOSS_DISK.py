@@ -10,16 +10,18 @@ class LOSS_DISK():
     cv.remove_log(c.LOSS_DISK_LOG_PATH)
     # 检查掉盘测试
     def run_item(self):
-        sleep(30)
+        i = 1
+        sleep(300)
         disks = self.get_disk()
         write_log("==============  Loss Disk Check Begin " + get_local_time_string() + " =================")
-        for i in range(10):
+        while True:
             fio = fio_run()
             memtester = mem_run()
             stress = stress_run()
-            write_log("stress->> " + str(stress) + "   memtester->> " + str(memtester) + "   fio->> " + str(fio))
+            print("stress->> " + str(stress) + "   memtester->> " + str(memtester) + "   fio->> "
+                      + str(fio))
             if stress and memtester and fio:
-                write_log("->>> CPU、Memory、Disks Stress Check is Running...")
+                write_log("->>> CPU、Memory、Disks、LAN Stress Check is Running...")
                 loss_or_not_disk = h.run_cmd("lsblk")
                 write_log("->>> Disks Showing : ")
                 write_log(loss_or_not_disk)
@@ -28,9 +30,11 @@ class LOSS_DISK():
                 else:
                     write_log("->>> Disks Loss! ")
             else:
-                write_log("->> stress、memtester and fio are Stopped!")
-            write_log("=========== NO_" + str(i + 1) + " Loss Disk Check End " + get_local_time_string() + "  ===========")
-            sleep(12)
+                write_log("->> stress、memtester 、fio and lan are Stopped!")
+                break
+            write_log("=========== NO_" + str(i) + " Loss Disk Check End " + get_local_time_string() + "  ===========")
+            i += 1
+            sleep(3600)
         return
 
     def get_disk(self):
