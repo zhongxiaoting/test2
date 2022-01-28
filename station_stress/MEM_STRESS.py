@@ -7,7 +7,7 @@ import sys
 from utils import decorator
 from config import constants as c
 from common import common_value as cv
-
+from time import sleep
 sys.path.append("..")
 
 
@@ -27,20 +27,19 @@ class MEM_STRESS(Item):
 
     def mem_check(self):
         cv.remove_log(c.MEM_STRESS_LOG_PATH)
-        # free_mem = 10240
-        free_mem = self.get_mem() * 0.98
+        free_mem = 10240
+        # free_mem = self.get_mem() * 0.98
         write_log("=============  MEM Stress Check Begin  " + get_local_time_string() + " ================")
         shell = "timeout 24h memtester {} 1 >> {}".format(int(free_mem), c.MEM_STRESS_LOG_PATH)
         write_log("The Command Line ->>> " + shell + "\n")
         mem_infor = self.run_cmd(shell)
-        print(mem_infor)
         write_log("\n" + "==============  MEM Stress Check End  " + get_local_time_string() + " =================")
         return mem_infor
 
 
 def write_log(s):
     with open(c.MEM_STRESS_LOG_PATH, 'a+') as f:
-        print(s)
+        # print(s)
         f.write(str(s) + '\n')
         f.flush()
         os.fsync(f)

@@ -7,7 +7,7 @@ from station_func import HOST_CFG_SET, INFO_PROGRAMMING, RTC_CHECK, CPU_CHECK, D
 from station_stress import CPU_STRESS, MEM_STRESS
 from station_stress import HDD_STRESS, STRESS_ALL, LAN_STRESS, MCE_ECC
 from station_final import LOG_CLEAN_TEST
-
+from station_func import BlackListCheck
 
 def do(station_name, item):
     if station_name == 'STATION_FUNC':
@@ -26,6 +26,8 @@ def do(station_name, item):
             VENEER_HEALTH_CHECK.VENEER_HEALTH_CHECK(item).run_item()
         if name == 'MAC_ADDRESS_CHECK':
             MAC_ADDRESS_CHECK.MAC_ADDRESS_CHECK(item).run_item()
+        if name == 'BlackListCheck':
+            BlackListCheck.ItemBlacklistCheck(item).run_item()
     elif station_name == 'STATION_STRESS':
         name = item['name']
         if name == 'STRESS_ALL':

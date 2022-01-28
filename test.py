@@ -1,3 +1,4 @@
+import datetime
 import threading
 import time
 
@@ -47,4 +48,16 @@ def run_item():
         t1 = threading.Thread(target=item_.run_item)
         t1.start()
 
-run_item()
+
+
+
+tw_time = datetime.datetime.now() + datetime.timedelta(seconds=20)
+tw_time = tw_time.strftime("%Y-%m-%d %H:%M:%S")
+while True:
+    now_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    if now_time == tw_time:
+        print("equal")
+        break
+    else:
+        print(now_time)
+        time.sleep(5)

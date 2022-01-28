@@ -51,7 +51,7 @@ class CPU_STRESS(Item):
 
 def write_log(s):
     with open(c.CPU_STRESS_LOG_PATH, 'a+') as f:
-        print(s)
+        # print(s)
         f.write(str(s) + '\n')
         f.flush()
         os.fsync(f)

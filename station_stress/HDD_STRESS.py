@@ -3,9 +3,9 @@ import os
 import re
 import sys
 import time
-
+import threading
 from main.item import Item
-from utils import decorator, log as l
+from utils import decorator
 from config import constants as c
 from common import common_value as cv
 
@@ -19,28 +19,41 @@ class HDD_STRESS(Item):
 
     def run_item(self):
         self.make_up_raid()
-        self.random_read_write()
-        self.random_read()
+        # self.random_read_write()
+        i = 0
+        all_data_disks = self.remove_os_disk()
+        os_disk = self.get_os_disk()
+        write_log0("->>> System Disk is : " + os_disk)
+        write_log0("->>> Tatol Non-system Disks: " + str(len(all_data_disks)))
+        write_log0("->>> Non-system Disks is : ")
+        write_log0(all_data_disks)
+        for data_disk in all_data_disks:
+            data_disk_t = threading.Thread(target=self.random_read_write, args=(data_disk,str(i)))
+            # data_disk_t.setDaemon(True)
+            data_disk_t.start()
+            i += 1
+        return
+
 
     # 对每一个非系统盘进行读写测试
     @decorator.item_test
-    def random_read_write(self):
-        i = 1
-        all_disk_not_os = self.remove_os_disk()
-        write_log("========= Non-System Disk Read And Write Begin  " + get_local_time_string() + " ==========")
-        for disk in all_disk_not_os:
-            write_log("Begin NO." + str(i) + " the non-system disk read and write")
-            shell = "fio -filename={} -direct=1 -iodepth 1" \
-                    " -thread -rw=randrw -ioengine=psync -bs=16k" \
-                    " -size=50% -numjobs=10 -runtime=20 -group_reporting" \
-                    " -name=mytest_{}".format(disk, i)
-            read_and_write = self.run_cmd(shell)
-            # write_log("========== 开始对非系统盘进行读写测试 ==========")
-            write_log("The Command Line ->>> " + shell + "\n")
-            write_log(read_and_write)
-            write_log("==================  NO." + str(i) + " non-system disk End ====================")
-            i += 1
-        write_log("->>> " + str(i - 1) + " non-system disks have been read and written End")
+    def random_read_write(self, data_disk, i):
+        if int(i) == 0:
+            pass
+        else:
+            cv.remove_log(c.HDD_STRESS_LOG_PATH + "disk" + i + '.log')
+
+        write_log("========= Data Disk NO." + i + " Read And Write Begin  " + get_local_time_string() + " ==========", i)
+
+        shell = "fio -filename=" + data_disk + " -direct=1 -iodepth 1" \
+                " -thread -rw=randrw -ioengine=psync -bs=16k" \
+                " -size=1G -numjobs=10 -runtime=20 -group_reporting" \
+                " -name=mytest_" + i
+        read_and_write = self.run_cmd(shell)
+        # write_log("========== 开始对非系统盘进行读写测试 ==========")
+        write_log("The Command Line ->>> " + shell + "\n", i)
+        write_log(read_and_write, i)
+        write_log("================== Data disk NO." + i +" End ====================", i)
         return read_and_write
 
     # 对系统盘进行读测试
@@ -49,29 +62,29 @@ class HDD_STRESS(Item):
         os_disk = self.get_os_disk()
         self.run_cmd("mkdir /test")
         shell = "fio -directory=/test -direct=1 -iodepth 1" \
-                " -thread -rw=randread -ioengine=psync -bs=16k -size=2G" \
-                " -numjobs=10 -runtime=20 -group_reporting -name=mytest_0"
-        os_disk_read = self.run_cmd(shell)
+                " -thread -rw=randread -ioengine=psync -bs=16k -size=1G" \
+                " -numjobs=10 -runtime=60 -group_reporting -name=mytest_0"
         write_log("============ System Disk Read Begin  " + get_local_time_string() + " ==============")
         write_log("The Command Line->>> " + shell + "\n")
+        os_disk_read = self.run_cmd(shell)
         write_log(os_disk_read)
         write_log("==============  System Disk Read End  " + get_local_time_string() + " =================")
         return os_disk_read
 
     # 是否要组Raid卡
     def make_up_raid(self):
-        cv.remove_log(c.HDD_STRESS_LOG_PATH)
-        write_log("=========== Disks Read and Write Check  " + get_local_time_string() + " ===============" + "\n")
+        cv.remove_log(c.HDD_STRESS_LOG_PATH + "disk0.log")
+        write_log0("=========== Disks Read and Write Check  " + get_local_time_string() + " ===============" + "\n")
         raid_or_not = self.run_cmd('lspci | grep "RAID" ')
         if "Fail" in raid_or_not or not raid_or_not:
             # write_log(raid_or_not)
-            write_log("->>> No Raid")
+            write_log0("->>> No Raid")
         else:
-            write_log("===================== Building Raid ============================")
+            write_log0("===================== Building Raid ============================")
             raid = self.run_cmd("sh makeraid0.sh")
-            write_log("============== Build Raid Success, Information ==================")
-            write_log(raid)
-            write_log("==================================================================")
+            write_log0("============== Build Raid Success, Information ==================")
+            write_log0(raid)
+            write_log0("==================================================================")
         return
 
     # 获取所有sd*,nvme*硬盘
@@ -95,9 +108,6 @@ class HDD_STRESS(Item):
                 if os == os_disk:
                     remove_os = "/dev/" + os_disk
                     all_disk.remove(remove_os)
-        write_log("->>> Tatol Non-system Disks: " + str(len(all_disk)))
-        write_log("->>> Non-system Disks is : ")
-        write_log(all_disk)
         return all_disk
 
     # 获取到系统盘
@@ -117,8 +127,9 @@ class HDD_STRESS(Item):
                     os_num = int(list_disk[i][0][-1])
                     os_disk = list_disk[i - os_num][0]
             i += 1
-        write_log("->>> System Disk is : " + os_disk)
+
         return os_disk
+
 
     # # 检车测试项的log中是否有fail项目
     # def check_log(self):
@@ -135,8 +146,16 @@ class HDD_STRESS(Item):
     #     return
 
 
-def write_log(s):
-    with open(c.HDD_STRESS_LOG_PATH, 'a+') as f:
+def write_log0(s):
+    with open(c.HDD_STRESS_LOG_PATH + 'disk0.log', 'a+') as f:
+        print(s)
+        f.write(str(s) + '\n')
+        f.flush()
+        os.fsync(f)
+
+
+def write_log(s, i):
+    with open(c.HDD_STRESS_LOG_PATH + "disk" + i + '.log', 'a+') as f:
         print(s)
         f.write(str(s) + '\n')
         f.flush()

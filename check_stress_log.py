@@ -1,11 +1,15 @@
 # coding=utf-8
 import os
 import re
+import sys
 import time
 import time as t
 from config import constants as c
 from station_stress import LOSS_DISK
 from utils import handle as h
+from utils import log as l
+from station_stress import HDD_STRESS
+from main.item import Item
 
 class ALL_STRESS_LOG():
 
@@ -16,8 +20,8 @@ class ALL_STRESS_LOG():
             memtester = LOSS_DISK.mem_run()
             fio = LOSS_DISK.fio_run()
             if stress is None and memtester is None and fio is None:
-                print("check_stress->> " + str(stress) + "   memtester->> " + str(memtester)
-                      + "   fio->> " + str(fio))
+                # print("check_stress->> " + str(stress) + "   memtester->> " + str(memtester)
+                #       + "   fio->> " + str(fio))
                 self.read_cpu_log()
                 self.read_mem_log()
                 self.read_hdd_log()
@@ -35,7 +39,6 @@ class ALL_STRESS_LOG():
     def read_cpu_log(self):
         with open(c.CPU_STRESS_LOG_PATH, "r") as f:
             cpu_data = f.read()
-        self.write_log("The server serial number is: " + c.get_sn())
         self.write_log("===============  STRESS_ALL " + self.get_local_time_string() + "=======================")
         self.write_log(cpu_data)
         return cpu_data
@@ -47,9 +50,12 @@ class ALL_STRESS_LOG():
         return mem_data
 
     def read_hdd_log(self):
-        with open(c.HDD_STRESS_LOG_PATH, "r") as f:
-            hdd_data = f.read()
-        self.write_log(str(hdd_data) + '\n')
+        data_disks = HDD_STRESS.HDD_STRESS(Item).remove_os_disk()
+        len_disks = len(data_disks)
+        for i in range(len_disks):
+            with open(c.HDD_STRESS_LOG_PATH + "disk" + str(i) + '.log', "r") as f:
+                hdd_data = f.read()
+            self.write_log(str(hdd_data) + '\n')
         return hdd_data
 
     def read_lan_log(self):
@@ -74,6 +80,8 @@ class ALL_STRESS_LOG():
             error4 = re.findall("ERROR", data)
             if error1 or error2 or error3 or error4:
                 self.write_log("->> There are ERRORS in the project, Please check！")
+                l.fail_msg("Stress Check have ERROR, Please check progress!")
+                sys.exit(0)
                 # l.log(str(error1) + "\n" + str(error2) + "\n" + str(error3))
                 return
         self.write_log("->> PASS ！")

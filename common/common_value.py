@@ -1,4 +1,6 @@
+# coding=utf-8
 from utils import log as l
+from main.item import Item
 import os
 
 
@@ -20,4 +22,8 @@ def remove_log(log_path):
         os.remove(log_path)
     else:
         pass
+
+
+
+
 

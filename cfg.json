@@ -67,6 +67,15 @@
                 "description": "mac地址校验",
                 "owner": "STATION_FUNC",
                 "keep_test": false
+            },
+            {  
+                "item_index": 8,
+                "name": "BlackListCheck",
+                "switch": "on",
+                "mes_check": false,
+                "description": "黑名单",
+                "owner": "STATION_FUNC",
+                "keep_test": false
             }
         ]
     },

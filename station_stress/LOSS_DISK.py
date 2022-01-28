@@ -1,9 +1,10 @@
 # coding=utf-8
 import os
+import sys
 import time
 from time import sleep
 from config import constants as c
-from utils import handle as h
+from utils import handle as h, log as l
 from common import common_value as cv
 
 class LOSS_DISK():
@@ -18,8 +19,8 @@ class LOSS_DISK():
             fio = fio_run()
             memtester = mem_run()
             stress = stress_run()
-            print("stress->> " + str(stress) + "   memtester->> " + str(memtester) + "   fio->> "
-                      + str(fio))
+            # print("stress->> " + str(stress) + "   memtester->> " + str(memtester) + "   fio->> "
+            #           + str(fio))
             if stress and memtester and fio:
                 write_log("->>> CPU、Memory、Disks、LAN Stress Check is Running...")
                 loss_or_not_disk = h.run_cmd("lsblk")
@@ -28,7 +29,10 @@ class LOSS_DISK():
                 if disks == loss_or_not_disk:
                     write_log("->>> Not Loss Disks! ")
                 else:
-                    write_log("->>> Disks Loss! ")
+                    write_log("->>>ERROR, Disks Loss! ")
+                    l.fail_msg("Disk Loss Check have ERROR, Please check progress!")
+                    sys.exit(1)
+                    break
             else:
                 write_log("->> stress、memtester 、fio and lan are Stopped!")
                 break

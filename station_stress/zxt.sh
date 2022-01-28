@@ -120,6 +120,35 @@ Stress --BMC
         检查硬盘是否有丢失
 
 
+# 网卡压力测试  --LAN
+    # 1、筛选出要测试的网口
+      ls /sys/class/net | grep -E "enp[a-z0-9]+f[0-1]$"
+    # 2、是否网口有连接网线
+          没有，终止程序
+          有，继续往下进行程序
+    # 3、正则出每一个网口的MAC地址
+          mac=$(ifconfig $enp |grep -Eo '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}')
+          放进数组中
+    # 4、正则出每一个网口的speed速度，是否达到要求 1G、10G、25G
+          speed=$(ethtool $i |grep "Speed: ")
+    # 5、设置每一个网口pktgen的参数
+          echo rem_device_all >/proc/net/pktgen/kpktgend_0
+          echo add_device enp24s0f0 > /proc/net/pktgen/kpktgend_0
+          echo count 10000 > /proc/net/pktgen/enp24s0f0
+          echo clone_skb 1000 >/proc/net/pktgen/enp24s0f0
+          echo pkt_size 1500 >/proc/net/pktgen/enp24s0f0
+          echo dst 10.11.11.1 >/proc/net/pktgen/enp24s0f0
+          echo dst_mac ${array_mac[$(($j+1))]} >/proc/net/pktgen/enp24s0f0
+          echo dst_mac ${array_mac[$(($j-1))]} >/proc/net/pktgen/enp24s0f0
+    # 6、检查Result结果是否达到标准传输速率
+          查网速：ethtool enp134s0f0  如10G
+          # 每隔一小时查一次
+               查结果的平均传输速率：cat /proc/net/pktgen/enp134s0f0   如10G - 1G为正常
+
+
+
+
+
 
 
 

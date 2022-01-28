@@ -43,10 +43,10 @@ class MCE_ECC(Item):
         write_log("==============  MEM ECC Check End  " + get_local_time_string() + " =================")
         if "ECC" in ecc_infor:
             write_log("->>> MEM ECC Check ERROR ")
+            self.result_fail()
             return
         write_log("->>> MEM ECC PASS")
         return
-
 
 
     # CPU MCE 检测出现错误
@@ -61,6 +61,8 @@ class MCE_ECC(Item):
                 write_log("============  CPU MCE ERROR Check Begin " + get_local_time_string() + " ==============")
                 write_log(errors_information)
                 write_log("==============  CPU MCE ERROR Check End " + get_local_time_string() + " ================")
+                write_log("->>> MCE ERROR ")
+                self.result_fail()
                 return errors_information
             else:
                 write_log("->>>  CPU MCE PASS")
