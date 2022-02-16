@@ -45,6 +45,9 @@ LOSS_DISK_LOG_PATH = STRESS_LOG + '/loss_disk.log'
 STRESS_ALL_LOG = TEST_DIR + '/' + sn_path + '.log'
 BLACK_LIST_LOG = TEST_DIR + '/blacklistall.log'
 
+# run time
+RUN_SECONDS = 86400
+
 
 
 ###############

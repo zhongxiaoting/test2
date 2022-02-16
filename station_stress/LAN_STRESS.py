@@ -61,8 +61,8 @@ class LAN_STRESS(Item):
 
     def check_speed(self):
         count = 1
-        duration_time = 50
-        day_time = datetime.datetime.now() + datetime.timedelta(seconds=duration_time)
+        # duration_time = 50
+        day_time = datetime.datetime.now() + datetime.timedelta(seconds=c.RUN_SECONDS)
         day_time = day_time.strftime("%Y-%m-%d %H:%M:%S")
         enps = self.run_cmd('ls /sys/class/net | grep -E "enp[a-z0-9]+f[0-1]$"').split('\n')
         while True:

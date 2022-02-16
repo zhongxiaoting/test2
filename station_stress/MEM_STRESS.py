@@ -30,7 +30,7 @@ class MEM_STRESS(Item):
         free_mem = 10240
         # free_mem = self.get_mem() * 0.98
         write_log("=============  MEM Stress Check Begin  " + get_local_time_string() + " ================")
-        shell = "timeout 24h memtester {} 1 >> {}".format(int(free_mem), c.MEM_STRESS_LOG_PATH)
+        shell = "timeout {} memtester {} 1 >> {}".format(c.RUN_SECONDS, int(free_mem), c.MEM_STRESS_LOG_PATH)
         write_log("The Command Line ->>> " + shell + "\n")
         mem_infor = self.run_cmd(shell)
         write_log("\n" + "==============  MEM Stress Check End  " + get_local_time_string() + " =================")

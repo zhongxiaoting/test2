@@ -47,7 +47,7 @@ class HDD_STRESS(Item):
 
         shell = "fio -filename=" + data_disk + " -direct=1 -iodepth 1" \
                 " -thread -rw=randrw -ioengine=psync -bs=16k" \
-                " -size=1G -numjobs=10 -runtime=20 -group_reporting" \
+                " -size=1G -numjobs=10 -runtime=" + c.RUN_SECONDS + "-group_reporting" \
                 " -name=mytest_" + i
         read_and_write = self.run_cmd(shell)
         # write_log("========== 开始对非系统盘进行读写测试 ==========")
